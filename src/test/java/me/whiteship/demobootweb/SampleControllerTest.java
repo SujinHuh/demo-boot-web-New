@@ -60,4 +60,13 @@ public class SampleControllerTest {
                 .andExpect(header().exists(HttpHeaders.CACHE_CONTROL));
     }
 
+    @Test
+    public void stringMessage() throws Exception {
+
+        this.mockMvc.perform(get("/message")
+                    .content("hello"))
+                    .andDo(print())
+                    .andExpect(status().isOk())
+                    .andExpect(content().string("hello"));
+    }
 }
