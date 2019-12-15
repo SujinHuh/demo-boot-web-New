@@ -1,6 +1,7 @@
 package me.whiteship.demobootweb;
 
 
+import org.aspectj.weaver.patterns.PerObject;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,5 +26,10 @@ public class SampleController {
     @GetMapping("/message")
     public String message(@RequestBody String body) {
         return body;
+    }
+
+    @GetMapping("/jsonMessage")
+    public Person jsonMessage(@RequestBody Person person) {
+        return person;
     }
 }
